@@ -1,12 +1,17 @@
 package com.example.expenseTracker.expenseTracker.model;
 
+import java.util.Set;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="user")
 public class User {
 
+	@Id
 	private long id;
 	private String name;
 	private String email;
@@ -35,6 +40,9 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@OneToMany
+	private Set<Category> category;
 	
 	
 	
