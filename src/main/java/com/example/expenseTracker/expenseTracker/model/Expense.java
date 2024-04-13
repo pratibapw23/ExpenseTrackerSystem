@@ -1,7 +1,5 @@
 package com.example.expenseTracker.expenseTracker.model;
 
-import java.time.Instant;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
@@ -12,16 +10,19 @@ import jakarta.persistence.Table;
 public class Expense {
 
 	@Id
-	private long id;
-	
-	private Instant expensetime;
+	private long id;	
 	private String description;
+	private String location;
 	
-	public Expense(long id, Instant expensetime, String description) {
+	public Expense() {
+		super();
+	}
+
+	public Expense(long id,String description,String location) {
 		super();
 		this.id = id;
-		this.expensetime = expensetime;
 		this.description = description;
+		this.location=location;
 	}
 
 	public long getId() {
@@ -32,14 +33,6 @@ public class Expense {
 		this.id = id;
 	}
 
-	public Instant getExpensetime() {
-		return expensetime;
-	}
-
-	public void setExpensetime(Instant expensetime) {
-		this.expensetime = expensetime;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -48,6 +41,16 @@ public class Expense {
 		this.description = description;
 	}
 	
+	
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+
 	@ManyToOne
 	private Category category;
 	

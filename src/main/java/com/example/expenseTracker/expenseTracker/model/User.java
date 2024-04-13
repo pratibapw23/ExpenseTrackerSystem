@@ -8,7 +8,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="user")
+//@Table(name="user")
 public class User {
 
 	@Id
@@ -40,10 +40,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	@OneToMany
-	private Set<Category> category;
-	
+//	
+//	@OneToMany
+//	private Set<Category> category;
+//	
 	
 	
 }

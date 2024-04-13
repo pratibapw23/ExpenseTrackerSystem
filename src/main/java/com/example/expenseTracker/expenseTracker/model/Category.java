@@ -37,8 +37,8 @@ public class Category {
 		this.name = name;
 	}
 	
-	@ManyToOne(cascade=CascadeType.PERSIST)
-	private User user;
+//	@ManyToOne(cascade=CascadeType.PERSIST)
+//	private User user;
 	
 	
 }
