@@ -5,5 +5,5 @@ insert into user values (2,'vidya', 'vidya@gmail.com');
 insert into category values (1,'Travel');
 insert into category values (2,'Rent');
 
-insert into expense values (10,'BusinessTrip','India',1,1);
-insert into expense values (11,'FordPayment','India',2,2);
+insert into expense values (1,10,1,'BusinessTrip','India');
+insert into expense values (2, 11,2,'FordPayment','India');
