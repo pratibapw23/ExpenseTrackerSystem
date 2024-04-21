@@ -1,12 +1,17 @@
 package com.example.expenseTracker.expenseTracker.controller;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,5 +41,11 @@ public class CategoryController {
 		Optional<Category> cat=categoryRepo.findById(id);
 		return cat.map(response -> ResponseEntity.ok().body(response))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	@PostMapping("/category")
+	ResponseEntity<Category> createCategory(@Validated @RequestBody Category category) throws URISyntaxException{
+		Category res=categoryRepo.save(category);
+		return ResponseEntity.created(new URI("/api/category" + res.getId())).body(res);
 	}
 }
