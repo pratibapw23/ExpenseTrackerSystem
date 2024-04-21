@@ -1,9 +1,9 @@
 package com.example.expenseTracker.expenseTracker.model;
 
-import jakarta.persistence.CascadeType;
+import org.springframework.lang.NonNull;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,6 +13,7 @@ public class Category {
 	@Id
 	private long id;
 	
+	@NonNull
 	private String name;
 	
 
